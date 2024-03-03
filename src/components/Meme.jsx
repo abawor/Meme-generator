@@ -24,15 +24,19 @@ export default function Meme() {
     return (
         <main>
             <div className="form">
+                <label for="top-text">Top Text</label>
+                <label for="bottom-text">Bottom Text</label>
+                <input 
+                        type="text"
+                        placeholder="Shut up"
+                        className="form--input"
+                        id="top-text"
+                    />
                 <input 
                     type="text"
-                    placeholder="Top text"
+                    placeholder="and take my money"
                     className="form--input"
-                />
-                <input 
-                    type="text"
-                    placeholder="Bottom text"
-                    className="form--input"
+                    id="bottom-text"
                 />
                 <button 
                     className="form--button"
