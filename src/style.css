@@ -62,8 +62,24 @@ main {
     cursor: pointer;
 }
 
-.meme--image {
-    display: block;
-    margin: 1em auto;
-    max-width: 100%;
+.meme-container {
+    position: relative;
+    text-align: center;
+}
+
+#top-text,
+#bottom-text {
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow:
+        1.3px 1.3px 0 #000,
+        -1.3px 1.3px 0 #000,
+        -1.3px -1.3px 0 #000,
+        1.3px -1.3px 0 #000;
+}
+
+#bottom-text {
+    bottom: 10px;
 }

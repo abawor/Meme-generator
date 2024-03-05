@@ -4,8 +4,8 @@ import memesData from "../memesData.js"
 export default function Meme() {
     
     const [meme, setMeme] = React.useState({
-        topText : "",
-        bottomText : "",
+        topText : "Top text",
+        bottomText : "Bottom text",
         randomImage : "",
     })
 
@@ -27,16 +27,14 @@ export default function Meme() {
                 <label for="top-text">Top Text</label>
                 <label for="bottom-text">Bottom Text</label>
                 <input 
-                        type="text"
-                        placeholder="Shut up"
-                        className="form--input"
-                        id="top-text"
-                    />
+                    type="text"
+                    placeholder="Shut up"
+                    className="form--input"
+                />
                 <input 
                     type="text"
                     placeholder="and take my money"
                     className="form--input"
-                    id="bottom-text"
                 />
                 <button 
                     className="form--button"
@@ -45,10 +43,10 @@ export default function Meme() {
                     Get a new meme image 🖼
                 </button>
             </div>
-            <div>
-                <h1>{meme.topText}</h1>
+            <div className="meme-container">
+                <h1 id="top-text">{meme.topText}</h1>
+                <h1 id="bottom-text">{meme.bottomText}</h1>
                 <img src={meme.randomImage} className="meme--image" />
-                <h1>{meme.bottomText}</h1>
             </div>
         </main>
     )
