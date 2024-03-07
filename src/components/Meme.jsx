@@ -44,8 +44,8 @@ export default function Meme() {
                 </button>
             </div>
             <div className="meme-container">
-                <h1 id="top-text">{meme.topText}</h1>
-                <h1 id="bottom-text">{meme.bottomText}</h1>
+                {meme.randomImage && <h1 id="top-text">{meme.topText}</h1>}
+                {meme.randomImage && <h1 id="bottom-text">{meme.bottomText}</h1>}
                 <img src={meme.randomImage} className="meme--image" />
             </div>
         </main>
