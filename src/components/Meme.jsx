@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import memesData from "../memesData.js"
 
 export default function Meme() {
@@ -21,20 +21,15 @@ export default function Meme() {
         })
     }
 
-    function handleTopTextChange(event) {
-        setMeme(prevState => {
-            return {
-                ...prevState,
-                topText : event.target.value
-            }
-        })
-    }
+    useEffect(() => {
+        getNewMeme()
+    }, [])
 
-    function handleBottomTextChange(event) {
+    function handleChange(event) {
         setMeme(prevState => {
             return {
                 ...prevState,
-                bottomText : event.target.value
+                [event.target.name] : event.target.value
             }
         })
     }
@@ -42,23 +37,26 @@ export default function Meme() {
     return (
         <main>
             <div className="form">
-                <label for="top-text">Top Text</label>
-                <label for="bottom-text">Bottom Text</label>
+                <label htmlFor="top-text">Top Text</label>
+                <label htmlFor="bottom-text">Bottom Text</label>
                 <input 
                     type="text"
                     placeholder="Shut up"
                     className="form--input"
-                    onChange={handleTopTextChange}
+                    onChange={handleChange}
+                    name="topText"
                 />
                 <input 
                     type="text"
                     placeholder="and take my money"
                     className="form--input"
-                    onChange={handleBottomTextChange}
+                    onChange={handleChange}
+                    name="bottomText"
                 />
                 <button 
                     className="form--button"
                     onClick={getNewMeme}
+                    id="get-new-meme"
                 >
                     Get a new meme image 🖼
                 </button>
