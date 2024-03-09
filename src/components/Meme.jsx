@@ -4,8 +4,8 @@ import memesData from "../memesData.js"
 export default function Meme() {
     
     const [meme, setMeme] = React.useState({
-        topText : "Top text",
-        bottomText : "Bottom text",
+        topText : "",
+        bottomText : "",
         randomImage : "",
     })
 
@@ -21,6 +21,24 @@ export default function Meme() {
         })
     }
 
+    function handleTopTextChange(event) {
+        setMeme(prevState => {
+            return {
+                ...prevState,
+                topText : event.target.value
+            }
+        })
+    }
+
+    function handleBottomTextChange(event) {
+        setMeme(prevState => {
+            return {
+                ...prevState,
+                bottomText : event.target.value
+            }
+        })
+    }
+
     return (
         <main>
             <div className="form">
@@ -30,11 +48,13 @@ export default function Meme() {
                     type="text"
                     placeholder="Shut up"
                     className="form--input"
+                    onChange={handleTopTextChange}
                 />
                 <input 
                     type="text"
                     placeholder="and take my money"
                     className="form--input"
+                    onChange={handleBottomTextChange}
                 />
                 <button 
                     className="form--button"
