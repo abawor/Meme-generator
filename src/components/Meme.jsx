@@ -26,13 +26,13 @@ export default function Meme() {
     }, [])
 
     function handleChange(event) {
-        setMeme(prevState => {
-            return {
-                ...prevState,
-                [event.target.name] : event.target.value
-            }
+        const {name, value} = event.target
+        setMeme(prevState => ({
+            ...prevState,
+            [name]: value
+            
         })
-    }
+    )}
 
     return (
         <main>
@@ -45,6 +45,7 @@ export default function Meme() {
                     className="form--input"
                     onChange={handleChange}
                     name="topText"
+                    value={meme.topText}
                 />
                 <input 
                     type="text"
@@ -52,13 +53,14 @@ export default function Meme() {
                     className="form--input"
                     onChange={handleChange}
                     name="bottomText"
+                    value={meme.bottomText}
                 />
                 <button 
                     className="form--button"
                     onClick={getNewMeme}
                     id="get-new-meme"
                 >
-                    Get a new meme image 🖼
+                    Get a new meme image
                 </button>
             </div>
             <div className="meme-container">
